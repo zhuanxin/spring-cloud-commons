@@ -49,7 +49,8 @@ public class LoadBalancerRequestFactory {
 	public LoadBalancerRequest<ClientHttpResponse> createRequest(
 			final HttpRequest request, final byte[] body,
 			final ClientHttpRequestExecution execution) {
-		return instance -> {
+		//匿名内部类，返回LoadBalancerRequest
+		return instance -> {//apply()
 			HttpRequest serviceRequest = new ServiceRequestWrapper(request, instance,
 					this.loadBalancer);
 			if (this.transformers != null) {

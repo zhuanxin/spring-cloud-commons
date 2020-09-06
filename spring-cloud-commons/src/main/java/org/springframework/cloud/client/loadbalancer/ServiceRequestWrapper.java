@@ -38,6 +38,10 @@ public class ServiceRequestWrapper extends HttpRequestWrapper {
 		this.loadBalancer = loadBalancer;
 	}
 
+	/**
+	 * 重写获取URI方法，获取真实URI
+	 * @return
+	 */
 	@Override
 	public URI getURI() {
 		URI uri = this.loadBalancer.reconstructURI(this.instance, getRequest().getURI());
